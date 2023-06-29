@@ -1,20 +1,41 @@
 <div class="login-page">
   <div class="form">
-    <form class="register-form" method="post" action="/api/Utente/Register">
+    <form class="register-form" on:submit="{handleSubmit}">
       <input type="text" name="UserName" placeholder="username"/>
       <input type="password" name="Password" placeholder="password"/>
-      <button>crea</button>
+      <button type="submit">crea</button>
       <p class="message">Già registrato? <a href="/login">login</a></p>
     </form>
-    <form class="login-form" method="post" action="/api/Utente/Login">
+    <form class="login-form" method="post" on:submit="{handleSubmit}">
       <input type="text" name="UserName" placeholder="username"/>
       <input type="password" name="Password" placeholder="password"/>
       <button type="submit">login</button>
-      <p class="message">Non sei registrato? <a href="/register">Crea un account</a></p>
+      <p class="message">Non sei registrato? <a href="register">Crea un account</a></p>
     </form>
   </div>
 </div>
-  
+<script>
+  // Handle the form submission
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    // Perform the POST request to the API endpoint
+    const response = await fetch('http://localhost:5153/api/Utente/Register', {
+      method: 'POST',
+      body: new FormData(event.target),
+      
+    });
+
+    if (response.status === 201) {
+      // Redirect the user to the desired URL after successful creation
+      window.location.href = "http://localhost:5173/homepage";
+    } else {
+      // Handle error case
+      console.error('Error:', response.status);
+    }
+  }
+  </script>
+
   <style>
       @import url(https://fonts.googleapis.com/css?family=Roboto:300);
   

@@ -1,16 +1,8 @@
 <script>
-// @ts-nocheck
-    // @ts-ignore
-    var data = []
-    fetch("http://localhost:5153/api/Configurazione")
-    .then(res => res.json())
-    .then(res => {console.log(res); data=res})
-   // export let data = [];
-</script>
+    import Navbar from "./navbar.svelte";
 
-{#each data as confs}
-    <h2>{confs.name}</h2>
-    <h2>{confs.confId}</h2>
-    <h2>{confs.pezzi}</h2>
-    <h2>{confs.utenteId}</h2>
-{/each}
+</script>
+<Navbar></Navbar>
+
+<h1>Benvenuti su carDb!</h1>
+<p>CarDb nasce come opportunità per poter fare e condividere varie configurazioni di aspetto tecnico legato alle auto.</p>
