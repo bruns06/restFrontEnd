@@ -1,19 +1,19 @@
 <div class="login-page">
-    <div class="form">
-      <form class="register-form" method="post" action="/api/Utente/Register">
-        <input type="text" name="UserName" placeholder="username"/>
-        <input type="password" name="Password" placeholder="password"/>
-        <button>crea</button>
-        <p class="message">Già registrato? <a href="/login">login</a></p>
-      </form>
-      <form class="login-form" method="post" action="/api/Utente/Login">
-        <input type="text" name="UserName" placeholder="username"/>
-        <input type="password" name="Password" placeholder="password"/>
-        <button type="submit">login</button>
-        <p class="message">Non sei registrato? <a href="/register">Crea un account</a></p>
-      </form>
-    </div>
+  <div class="form">
+    <form class="register-form" method="post" action="/api/Utente/Register">
+      <input type="text" name="UserName" placeholder="username"/>
+      <input type="password" name="Password" placeholder="password"/>
+      <button>crea</button>
+      <p class="message">Già registrato? <a href="/login">login</a></p>
+    </form>
+    <form class="login-form" method="post" action="/api/Utente/Login">
+      <input type="text" name="UserName" placeholder="username"/>
+      <input type="password" name="Password" placeholder="password"/>
+      <button type="submit">login</button>
+      <p class="message">Non sei registrato? <a href="/register">Crea un account</a></p>
+    </form>
   </div>
+</div>
   
   <style>
       @import url(https://fonts.googleapis.com/css?family=Roboto:300);
@@ -70,7 +70,7 @@
     color: #4CAF50;
     text-decoration: none;
   }
-  .form .register-form {
+  .form .login-form {
     display: none;
   }
   .container {
