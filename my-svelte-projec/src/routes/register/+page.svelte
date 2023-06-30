@@ -28,7 +28,7 @@
 
     if (response.status === 201) {
       // Redirect the user to the desired URL after successful creation
-      window.location.href = "http://localhost:5173/homepage";
+      window.location.href = "http://localhost:5173/login";
     } else {
       // Handle error case
       console.error('Error:', response.status);
