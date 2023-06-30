@@ -28,6 +28,15 @@
         },
         body: JSON.stringify(requestBody)
       });
+
+      // Perform the POST request to the API endpoint
+      const responseDelete = await fetch('http://localhost:5153/api/Configurazione', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      });
   
       if (response.status) {
         // Redirect the user to the desired URL after successful creation
