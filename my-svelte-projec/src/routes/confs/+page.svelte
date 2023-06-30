@@ -3,6 +3,8 @@
 
     import Navbar from "../navbar.svelte";
 
+    
+
         // @ts-ignore
         var data = []
         fetch("http://localhost:5153/api/Configurazione")
@@ -11,14 +13,16 @@
        // export let data = [];
     </script>
     <Navbar></Navbar>
+    <h1>Configurazioni</h1>
     <div class="card-container">
+      
     {#each data as confs}
         <div class="card">
             <div class="card-content">
-                <h2>{confs.name}</h2>
-                <h2>{confs.confId}</h2>
-                <h2>{confs.pezzi}</h2>
-                <h2>{confs.utenteId}</h2>
+                <h2>Nome: {confs.name}</h2>
+                <h2>Id: {confs.confId}</h2>
+                <h2>Id Utente:  {confs.utenteId}</h2>
+                <h2>Marca:  {confs.marca}</h2>
             </div>
         </div>
     {/each}
@@ -26,6 +30,8 @@
 
     
 <style>
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
     .card-container {
       display: flex;
       flex-wrap: wrap;
@@ -35,8 +41,16 @@
       width: 300px;
       margin: 10px;
       padding: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      border: 1px solid #000000;
+      border-radius: 10px;
+      
+      background-color: #4CAF50;
+      color: white;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .card:hover{
+      background: #43A047;
     }
   
     .card-content {
@@ -46,5 +60,10 @@
   
     h3 {
       margin-top: 0;
+    }
+
+    h1{
+      text-align: center;
+      font-family: "Roboto", sans-serif;
     }
   </style>

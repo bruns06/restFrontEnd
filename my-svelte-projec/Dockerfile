@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the project
-RUN npm run 
+RUN npm run build
 
 
 # Production image

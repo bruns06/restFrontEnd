@@ -4,7 +4,8 @@
     // Declare the component variables
     let confName = '';
     let userId = 0;
-    let pezzi = [{ marcaPezzo: '', categoriaPrezzo: '' }];
+    let pezzi = [{ marcaPezzo: '', categoriaPezzo: '' }];
+    let nomeM = "";
   
     // Handle the form submission
     async function handleSubmit(event) {
@@ -15,7 +16,8 @@
         confId: 0,
         name: confName,
         utenteId: userId,
-        pezzi: pezzi
+        pezzi: pezzi,
+        marca: nomeM
       };
   
       // Perform the POST request to the API endpoint
@@ -38,31 +40,46 @@
   
     // Add a new empty "pezzi" object to the array
     function addPezzi() {
-      pezzi = [...pezzi, { marcaPezzo: '', categoriaPrezzo: '' }];
+      pezzi = [...pezzi, { marcaPezzo: '', categoriaPezzo: '' }];
     }
   
     // Update the values of the "pezzi" object
     function updatePezzi(index, field, value) {
       pezzi[index][field] = value;
     }
+
+    var data2 = []
+        fetch("http://localhost:5153/api/Marca")
+        .then(res => res.json())
+        .then(res => {console.log(res); data2=res})
+
   </script>
   <Navbar></Navbar>
+  <h1>Crea configurazioni</h1>
   <div class="login-page">
     <div class="form">
       <form class="register-form" on:submit="{handleSubmit}">
         <input type="text" bind:value="{confName}" placeholder="Nome configurazione"/>
         <input type="number" bind:value="{userId}" placeholder="user_id"/>
-  
+        
+        <select bind:value="{nomeM}">
+         
+            {#each data2 as marca}
+            <option>{marca.nomeMarca}</option>
+            {/each}          
+          
+        </select>
+
         {#each pezzi as pezzo, index}
           <div class="pezzo-container">
             <input type="text" bind:value="{pezzo.marcaPezzo}" placeholder="Marca pezzo" on:input="{() => updatePezzi(index, 'marcaPezzo', pezzo.marcaPezzo)}"/>
-            <input type="text" bind:value="{pezzo.categoriaPrezzo}" placeholder="Categoria prezzo" on:input="{() => updatePezzi(index, 'categoriaPrezzo', pezzo.categoriaPrezzo)}"/>
+            <input type="text" bind:value="{pezzo.categoriaPezzo}" placeholder="Categoria pezzo" on:input="{() => updatePezzi(index, 'categoriaPezzo', pezzo.categoriaPezzo)}"/>
           </div>
         {/each}
   
         <button type="button" on:click="{addPezzi}">Add Pezzo</button>
   
-        <button type="submit">Crea configurazione</button>
+        <button type="submit">Crea</button>
         
       </form>
     </div>
@@ -163,5 +180,12 @@
       font-family: "Roboto", sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;      
+    }
+
+    h1{
+      
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+    
     }
     </style>
