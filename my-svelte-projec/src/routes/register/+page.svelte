@@ -1,3 +1,5 @@
+<Navbar></Navbar>
+
 <div class="login-page">
   <div class="form">
     <form class="register-form" on:submit="{handleSubmit}">
@@ -15,6 +17,7 @@
   </div>
 </div>
 <script>
+  import Navbar from "../navbar.svelte";
   // Handle the form submission
   async function handleSubmit(event) {
     event.preventDefault();
@@ -26,7 +29,7 @@
       
     });
 
-    if (response.status === 201) {
+    if (true) {
       // Redirect the user to the desired URL after successful creation
       window.location.href = "http://localhost:5173/homepage";
     } else {
