@@ -1,5 +1,3 @@
-<Navbar></Navbar>
-
 <div class="login-page">
     <div class="form">
       <form class="register-form" on:submit="{handleSubmit}">
@@ -18,7 +16,6 @@
   </div>
   
   <script>
-    import Navbar from "../navbar.svelte";
     // Handle the form submission
     async function handleSubmit(event) {
       event.preventDefault();

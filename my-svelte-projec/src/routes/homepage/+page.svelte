@@ -1,11 +1,23 @@
+<script>
+
+    import Navbar from "../navbar.svelte";
+
+</script>
+<style>
+  a{
+    text-decoration: none;
+    border: black solid 1px;
+    color: black;
+    font-size: xx-large;
+  }
+  a:hover{
+    background-color: gray;
+  }
+</style>
 <div class="wrapper"> 
     <header class="site-header">
-      <nav>
-        | <a href="/creaConfs"><strong>Crea configurazione</strong></a> | 
-        <a href="/confs"><strong>Configurazione</strong></a> |
-        <a href="/register"><strong>Login</strong></a> |
-        <a href="/login"><strong>Register</strong></a> |
-      </nav>
+    <Navbar></Navbar>
+    
     </header>
   
     <main>
@@ -16,7 +28,8 @@
           <a href="/creaConfs" class="button">Crea configurazione</a>
         </div>
         <div class="block">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/48935/hello.jpg" alt="An illustration of me in profile">
+          <h2>Crea la tua nuova macchina!</h2>
+          <img src="https://inspirationfeed.com/wp-content/uploads/2014/05/concept-car.jpg" alt="An illustration of me in profile">
         </div>
       </div>
     </main>
@@ -25,3 +38,4 @@
       <small>Cose legali</small>
     </footer>
   </div>
+  
